@@ -1,0 +1,241 @@
+/* Base Styles */
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Navigation - Fixed z-index and visibility */
+#main-header {
+    z-index: 100 !important;
+}
+
+#navbar {
+    background: transparent;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu - Higher z-index, always visible structure */
+#mobile-menu {
+    z-index: 200 !important;
+    display: none; /* Hidden by default */
+}
+
+#mobile-menu.mobile-menu-open {
+    display: flex !important;
+}
+
+/* Accordion Content */
+.accordion-content {
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: height;
+}
+
+/* Mobile Menu Items Animation */
+.mobile-menu-item {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.mobile-menu-open .mobile-menu-item {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+/* Aspect Ratio with Fallback */
+.aspect-portrait {
+    aspect-ratio: 4/5;
+}
+
+@supports not (aspect-ratio: 4/5) {
+    .aspect-portrait {
+        position: relative;
+        padding-bottom: 125%;
+        height: 0;
+    }
+    
+    .aspect-portrait > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/* Backdrop Blur - Safari Compatible */
+.backdrop-blur-sm {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.backdrop-blur-lg {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Fallback for no backdrop-filter support */
+@supports not ((-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))) {
+    .backdrop-blur-sm,
+    .backdrop-blur-lg {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+}
+
+/* Touch Actions */
+button,
+a,
+.accordion-item {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    touch-action: manipulation;
+}
+
+/* Hardware Acceleration */
+#navbar,
+#mobile-menu,
+.mobile-menu-item,
+.project-card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Prevent iOS zoom */
+input,
+textarea,
+select,
+button {
+    font-size: 16px;
+}
+
+/* iOS Safari Fixes */
+@supports (-webkit-touch-callout: none) {
+    .min-h-screen {
+        min-height: -webkit-fill-available;
+    }
+    
+    .h-screen {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Smooth scroll when supported */
+@supports (scroll-behavior: smooth) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Rotation utility */
+.rotate-45 {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Prevent unwanted text selection */
+button,
+.accordion-item {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Fix for Safari flexbox */
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+/* Mobile menu overflow */
+#mobile-menu {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+/* Ensure proper stacking */
+header {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* Iconify icons */
+iconify-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+}
+
+/* Navigation transitions */
+.nav-pill {
+    -webkit-transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Make sure backdrop blur actually works on Safari */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        .backdrop-blur-sm {
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            backdrop-filter: blur(10px) saturate(180%);
+        }
+        
+        .backdrop-blur-lg {
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            backdrop-filter: blur(20px) saturate(180%);
+        }
+    }
+}
+
+/* Opacity transitions for header */
+#main-header {
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure mobile menu covers everything */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+}

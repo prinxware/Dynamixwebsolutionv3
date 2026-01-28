@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+        <title>Dynamix Web Solution Ltd</title>
+        <!-- Fonts: Space Grotesk -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Iconify -->
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <!-- GSAP - Updated Version -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        
+        <link rel="stylesheet" href="global.css">
+    </head>
+    <body class="bg-white text-slate-900 overflow-x-hidden selection:bg-blue-100 selection:text-blue-700">
+
+        <!-- Navigation -->
+        <header id="main-header" class="fixed top-0 left-0 w-full z-50 flex justify-center py-4 pointer-events-none transition-opacity duration-300">
+            <nav id="navbar" class="nav-pill pointer-events-auto w-full max-w-[92%] md:max-w-7xl mx-auto flex items-center justify-between px-6 py-4 bg-transparent backdrop-blur-sm">
+                <!-- Logo -->
+                <a href="index.html" class="text-xl tracking-tighter font-medium flex items-center gap-2 z-50 relative">
+                   <svg width="80" height="" viewBox="0 0 565 239" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0H211.676C230.532 0 245.817 15.2863 245.817 34.1429V54.6286H223.057V43.8501C223.057 32.2034 213.615 22.7619 201.969 22.7619H22.761V216.238H201.969C213.616 216.238 223.057 206.797 223.057 195.15V184.371H245.817V204.857C245.817 223.714 230.532 239 211.676 239H0V0Z" fill="black"/>
+                        <path d="M50.0739 54.6286H172.983C185.553 54.6286 195.743 64.8194 195.743 77.3905V161.61C195.743 174.181 185.553 184.371 172.983 184.371H50.0739V54.6286Z" fill="black"/>
+                        <path d="M235.835 156.585V147.728H262.897C264.734 147.728 265.653 146.744 265.653 144.776V129.817H264.078C263.488 131.129 262.569 132.409 261.323 133.655C260.142 134.836 258.535 135.82 256.501 136.608C254.467 137.395 251.908 137.789 248.825 137.789C245.151 137.789 241.871 136.969 238.984 135.328C236.098 133.688 233.834 131.359 232.194 128.341C230.554 125.323 229.734 121.748 229.734 117.614V88.3859H239.87V116.827C239.87 121.026 240.92 124.142 243.019 126.176C245.118 128.144 248.038 129.128 251.777 129.128C255.91 129.128 259.223 127.751 261.716 124.995C264.275 122.24 265.554 118.237 265.554 112.989V88.3859H275.69V146.842C275.69 149.795 274.805 152.157 273.033 153.928C271.328 155.7 268.966 156.585 265.948 156.585H235.835Z" fill="black"/>
+                        <path d="M290.674 136.903V88.3859H300.613V95.6684H302.187C303.106 93.7001 304.746 91.8631 307.108 90.1573C309.469 88.4515 312.979 87.5986 317.637 87.5986C321.311 87.5986 324.558 88.4187 327.379 90.0589C330.266 91.6991 332.529 94.0282 334.17 97.0461C335.81 99.9985 336.63 103.574 336.63 107.773V136.903H326.494V108.56C326.494 104.361 325.444 101.278 323.345 99.3096C321.245 97.2758 318.359 96.2588 314.685 96.2588C310.486 96.2588 307.108 97.6366 304.549 100.392C302.056 103.148 300.81 107.15 300.81 112.398V136.903H290.674Z" fill="black"/>
+                        <path d="M366.273 138.281C362.796 138.281 359.68 137.69 356.925 136.509C354.235 135.328 352.07 133.59 350.43 131.293C348.855 128.997 348.068 126.209 348.068 122.928C348.068 119.582 348.855 116.827 350.43 114.662C352.07 112.431 354.268 110.758 357.023 109.643C359.844 108.528 363.026 107.97 366.569 107.97H381.33V104.821C381.33 102 380.477 99.7361 378.771 98.0303C377.065 96.3244 374.441 95.4715 370.899 95.4715C367.422 95.4715 364.764 96.2916 362.928 97.9318C361.091 99.572 359.877 101.704 359.286 104.329L349.839 101.278C350.627 98.6535 351.873 96.2917 353.579 94.1922C355.35 92.0271 357.679 90.2885 360.566 88.9764C363.452 87.6642 366.929 87.0081 370.997 87.0081C377.295 87.0081 382.248 88.6155 385.856 91.8303C389.465 95.0451 391.269 99.6048 391.269 105.51V125.487C391.269 127.455 392.187 128.439 394.024 128.439H398.157V136.903H390.58C388.284 136.903 386.414 136.312 384.971 135.132C383.527 133.951 382.806 132.343 382.806 130.309V130.014H381.33C380.805 130.998 380.018 132.146 378.968 133.458C377.918 134.771 376.377 135.919 374.343 136.903C372.309 137.821 369.619 138.281 366.273 138.281ZM367.75 129.916C371.817 129.916 375.097 128.768 377.59 126.471C380.083 124.109 381.33 120.895 381.33 116.827V115.843H367.159C364.469 115.843 362.304 116.433 360.664 117.614C359.024 118.73 358.204 120.403 358.204 122.633C358.204 124.864 359.057 126.635 360.763 127.947C362.468 129.26 364.797 129.916 367.75 129.916Z" fill="black"/>
+                        <path d="M408.013 136.903V88.3859H417.952V94.0938H419.526C420.445 92.388 421.921 90.879 423.955 89.5668C425.988 88.2547 428.744 87.5986 432.221 87.5986C435.829 87.5986 438.716 88.3531 440.881 89.8621C443.111 91.3055 444.784 93.1753 445.9 95.4715H447.474C448.589 93.2409 450.197 91.3711 452.296 89.8621C454.461 88.3531 457.512 87.5986 461.448 87.5986C464.597 87.5986 467.385 88.2547 469.812 89.5668C472.24 90.8134 474.175 92.716 475.619 95.2747C477.062 97.7678 477.783 100.884 477.783 104.624V136.903H467.648V105.411C467.648 102.459 466.827 100.195 465.187 98.6207C463.613 96.9805 461.349 96.1604 458.397 96.1604C455.248 96.1604 452.722 97.1774 450.82 99.2112C448.917 101.245 447.966 104.165 447.966 107.97V136.903H437.83V105.411C437.83 102.459 437.01 100.195 435.37 98.6207C433.795 96.9805 431.532 96.1604 428.58 96.1604C425.431 96.1604 422.905 97.1774 421.003 99.2112C419.1 101.245 418.149 104.165 418.149 107.97V136.903H408.013Z" fill="black"/>
+                        <path d="M492.389 136.903V88.3859H502.525V136.903H492.389ZM497.506 81.7923C495.538 81.7923 493.865 81.169 492.488 79.9225C491.176 78.6103 490.52 76.9373 490.52 74.9035C490.52 72.8696 491.176 71.2295 492.488 69.9829C493.865 68.6707 495.538 68.0147 497.506 68.0147C499.54 68.0147 501.213 68.6707 502.525 69.9829C503.837 71.2295 504.493 72.8696 504.493 74.9035C504.493 76.9373 503.837 78.6103 502.525 79.9225C501.213 81.169 499.54 81.7923 497.506 81.7923Z" fill="black"/>
+                        <path d="M513.435 136.903L531.935 112.398L513.828 88.3859H525.736L538.43 105.805H540.005L552.699 88.3859H564.705L546.499 112.398L565 136.903H552.896L540.005 119.09H538.43L525.539 136.903H513.435Z" fill="black"/>
+                        <path d="M292.522 168.386L290.434 156.135H292.994L294.535 166.672H294.933L297.07 156.135H301.221L303.334 166.672H303.731L305.272 156.135H307.832L305.745 168.386H301.445L299.332 157.875H298.934L296.822 168.386H292.522Z" fill="black"/>
+                        <path d="M325.799 168.734C324.556 168.734 323.471 168.477 322.543 167.964C321.615 167.434 320.886 166.697 320.356 165.752C319.842 164.791 319.585 163.681 319.585 162.422V162.124C319.585 160.848 319.842 159.738 320.356 158.794C320.87 157.833 321.582 157.096 322.493 156.582C323.421 156.052 324.49 155.787 325.7 155.787C326.876 155.787 327.903 156.052 328.782 156.582C329.676 157.096 330.372 157.817 330.869 158.744C331.367 159.672 331.615 160.757 331.615 162V162.969H322.195C322.228 164.046 322.585 164.907 323.264 165.553C323.96 166.183 324.822 166.498 325.849 166.498C326.81 166.498 327.531 166.282 328.011 165.852C328.508 165.421 328.889 164.924 329.154 164.361L331.267 165.454C331.035 165.918 330.695 166.407 330.248 166.92C329.817 167.434 329.246 167.864 328.533 168.212C327.821 168.56 326.909 168.734 325.799 168.734ZM322.22 161.006H329.005C328.939 160.078 328.608 159.357 328.011 158.844C327.415 158.314 326.636 158.049 325.675 158.049C324.714 158.049 323.927 158.314 323.314 158.844C322.717 159.357 322.353 160.078 322.22 161.006Z" fill="black"/>
+                        <path d="M351.098 168.734C349.905 168.734 348.985 168.519 348.339 168.088C347.709 167.657 347.237 167.177 346.922 166.647H346.525V168.386H344.014V150.991H346.574V157.8H346.972C347.171 157.469 347.436 157.154 347.767 156.856C348.099 156.541 348.538 156.284 349.085 156.085C349.631 155.887 350.302 155.787 351.098 155.787C352.125 155.787 353.07 156.036 353.931 156.533C354.793 157.03 355.48 157.75 355.994 158.695C356.508 159.639 356.765 160.766 356.765 162.074V162.447C356.765 163.772 356.499 164.907 355.969 165.852C355.456 166.779 354.768 167.492 353.906 167.989C353.061 168.486 352.125 168.734 351.098 168.734ZM350.352 166.498C351.462 166.498 352.374 166.142 353.086 165.429C353.815 164.717 354.18 163.698 354.18 162.373V162.149C354.18 160.84 353.823 159.829 353.111 159.117C352.398 158.405 351.479 158.049 350.352 158.049C349.259 158.049 348.347 158.405 347.618 159.117C346.906 159.829 346.549 160.84 346.549 162.149V162.373C346.549 163.698 346.906 164.717 347.618 165.429C348.347 166.142 349.259 166.498 350.352 166.498Z" fill="black"/>
+                        <path d="M382.101 168.734C380.544 168.734 379.251 168.386 378.224 167.691C377.196 166.995 376.567 165.943 376.335 164.535L378.721 163.963C378.853 164.642 379.077 165.181 379.392 165.578C379.707 165.976 380.096 166.257 380.56 166.423C381.041 166.589 381.554 166.672 382.101 166.672C382.913 166.672 383.534 166.514 383.965 166.2C384.413 165.885 384.636 165.479 384.636 164.982C384.636 164.485 384.429 164.12 384.015 163.888C383.601 163.656 382.988 163.466 382.176 163.317L381.331 163.168C380.502 163.019 379.748 162.803 379.069 162.522C378.39 162.24 377.851 161.851 377.453 161.354C377.056 160.857 376.857 160.219 376.857 159.44C376.857 158.28 377.288 157.386 378.149 156.756C379.011 156.11 380.154 155.787 381.579 155.787C382.954 155.787 384.081 156.102 384.959 156.731C385.854 157.344 386.434 158.181 386.699 159.241L384.313 159.912C384.164 159.167 383.849 158.645 383.369 158.347C382.888 158.032 382.292 157.875 381.579 157.875C380.883 157.875 380.336 158.007 379.939 158.272C379.541 158.521 379.342 158.877 379.342 159.341C379.342 159.838 379.533 160.202 379.914 160.434C380.312 160.666 380.842 160.84 381.505 160.956L382.375 161.105C383.253 161.254 384.056 161.461 384.785 161.726C385.514 161.991 386.086 162.373 386.5 162.87C386.931 163.367 387.147 164.029 387.147 164.858C387.147 166.084 386.691 167.036 385.78 167.715C384.868 168.395 383.642 168.734 382.101 168.734Z" fill="black"/>
+                        <path d="M405.198 168.734C403.972 168.734 402.878 168.486 401.917 167.989C400.973 167.475 400.227 166.746 399.68 165.802C399.133 164.858 398.86 163.739 398.86 162.447V162.074C398.86 160.782 399.133 159.672 399.68 158.744C400.227 157.8 400.973 157.071 401.917 156.557C402.878 156.044 403.972 155.787 405.198 155.787C406.424 155.787 407.518 156.044 408.479 156.557C409.44 157.071 410.194 157.8 410.74 158.744C411.287 159.672 411.561 160.782 411.561 162.074V162.447C411.561 163.739 411.287 164.858 410.74 165.802C410.194 166.746 409.44 167.475 408.479 167.989C407.518 168.486 406.424 168.734 405.198 168.734ZM405.198 166.448C406.325 166.448 407.236 166.092 407.932 165.379C408.644 164.65 409.001 163.648 409.001 162.373V162.149C409.001 160.873 408.653 159.879 407.957 159.167C407.261 158.438 406.341 158.073 405.198 158.073C404.088 158.073 403.176 158.438 402.464 159.167C401.768 159.879 401.42 160.873 401.42 162.149V162.373C401.42 163.648 401.768 164.65 402.464 165.379C403.176 166.092 404.088 166.448 405.198 166.448Z" fill="black"/>
+                        <path d="M424.065 168.386V150.991H426.625V168.386H424.065Z" fill="black"/>
+                        <path d="M444.44 168.61C443.512 168.61 442.683 168.403 441.954 167.989C441.225 167.575 440.654 166.986 440.239 166.224C439.825 165.462 439.618 164.551 439.618 163.491V156.135H442.178V163.317C442.178 164.377 442.443 165.164 442.973 165.678C443.503 166.175 444.241 166.423 445.185 166.423C446.229 166.423 447.066 166.075 447.696 165.379C448.342 164.667 448.665 163.648 448.665 162.323V156.135H451.225V168.386H448.715V166.547H448.317C448.085 167.044 447.671 167.517 447.074 167.964C446.478 168.395 445.6 168.61 444.44 168.61Z" fill="black"/>
+                        <path d="M468.925 168.386C468.179 168.386 467.583 168.163 467.135 167.715C466.705 167.268 466.489 166.672 466.489 165.926V158.297H463.109V156.135H466.489V152.084H469.049V156.135H472.703V158.297H469.049V165.479C469.049 165.976 469.281 166.224 469.745 166.224H472.305V168.386H468.925Z" fill="black"/>
+                        <path d="M485.028 168.386V156.135H487.588V168.386H485.028ZM486.32 154.47C485.823 154.47 485.401 154.313 485.053 153.998C484.721 153.667 484.556 153.244 484.556 152.73C484.556 152.217 484.721 151.803 485.053 151.488C485.401 151.157 485.823 150.991 486.32 150.991C486.834 150.991 487.257 151.157 487.588 151.488C487.919 151.803 488.085 152.217 488.085 152.73C488.085 153.244 487.919 153.667 487.588 153.998C487.257 154.313 486.834 154.47 486.32 154.47Z" fill="black"/>
+                        <path d="M506.446 168.734C505.22 168.734 504.126 168.486 503.165 167.989C502.221 167.475 501.475 166.746 500.928 165.802C500.382 164.858 500.108 163.739 500.108 162.447V162.074C500.108 160.782 500.382 159.672 500.928 158.744C501.475 157.8 502.221 157.071 503.165 156.557C504.126 156.044 505.22 155.787 506.446 155.787C507.672 155.787 508.766 156.044 509.727 156.557C510.688 157.071 511.442 157.8 511.989 158.744C512.536 159.672 512.809 160.782 512.809 162.074V162.447C512.809 163.739 512.536 164.858 511.989 165.802C511.442 166.746 510.688 167.475 509.727 167.989C508.766 168.486 507.672 168.734 506.446 168.734ZM506.446 166.448C507.573 166.448 508.484 166.092 509.18 165.379C509.893 164.65 510.249 163.648 510.249 162.373V162.149C510.249 160.873 509.901 159.879 509.205 159.167C508.509 158.438 507.59 158.073 506.446 158.073C505.336 158.073 504.425 158.438 503.712 159.167C503.016 159.879 502.668 160.873 502.668 162.149V162.373C502.668 163.648 503.016 164.65 503.712 165.379C504.425 166.092 505.336 166.448 506.446 166.448Z" fill="black"/>
+                        <path d="M525.314 168.386V156.135H527.824V157.974H528.222C528.454 157.477 528.868 157.013 529.464 156.582C530.061 156.152 530.947 155.936 532.124 155.936C533.052 155.936 533.872 156.143 534.584 156.557C535.314 156.972 535.885 157.56 536.299 158.322C536.714 159.067 536.921 159.97 536.921 161.031V168.386H534.361V161.229C534.361 160.169 534.096 159.39 533.565 158.893C533.035 158.38 532.306 158.123 531.378 158.123C530.318 158.123 529.464 158.471 528.818 159.167C528.189 159.863 527.874 160.873 527.874 162.199V168.386H525.314Z" fill="black"/>
+                        <path d="M554.943 168.734C553.386 168.734 552.093 168.386 551.066 167.691C550.039 166.995 549.409 165.943 549.177 164.535L551.563 163.963C551.696 164.642 551.919 165.181 552.234 165.578C552.549 165.976 552.938 166.257 553.402 166.423C553.883 166.589 554.396 166.672 554.943 166.672C555.755 166.672 556.377 166.514 556.807 166.2C557.255 165.885 557.478 165.479 557.478 164.982C557.478 164.485 557.271 164.12 556.857 163.888C556.443 163.656 555.83 163.466 555.018 163.317L554.173 163.168C553.344 163.019 552.59 162.803 551.911 162.522C551.232 162.24 550.693 161.851 550.296 161.354C549.898 160.857 549.699 160.219 549.699 159.44C549.699 158.28 550.13 157.386 550.991 156.756C551.853 156.11 552.996 155.787 554.421 155.787C555.797 155.787 556.923 156.102 557.802 156.731C558.696 157.344 559.276 158.181 559.541 159.241L557.155 159.912C557.006 159.167 556.691 158.645 556.211 158.347C555.73 158.032 555.134 157.875 554.421 157.875C553.725 157.875 553.179 158.007 552.781 158.272C552.383 158.521 552.184 158.877 552.184 159.341C552.184 159.838 552.375 160.202 552.756 160.434C553.154 160.666 553.684 160.84 554.347 160.956L555.217 161.105C556.095 161.254 556.899 161.461 557.628 161.726C558.357 161.991 558.928 162.373 559.343 162.87C559.773 163.367 559.989 164.029 559.989 164.858C559.989 166.084 559.533 167.036 558.622 167.715C557.71 168.395 556.484 168.734 554.943 168.734Z" fill="black"/>
+                    </svg>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-10 text-sm font-normal text-slate-600">
+                    <a href="#about" class="hover:text-blue-600 transition-colors relative group">
+                        Who we are
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="hover:text-blue-600 transition-colors relative group">
+                        Expertise
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#works" class="hover:text-blue-600 transition-colors relative group">
+                        Works
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#products" class="hover:text-blue-600 transition-colors relative group">
+                        Product
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                    </a>
+                </div>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-4 z-50">
+                    <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm font-medium border border-slate-200 bg-white px-6 py-2.5 rounded-xl hover:border-blue-600 hover:text-blue-600 transition-colors shadow-sm">
+                        Let's Talk
+                    </a>
+                    
+                    <!-- Hamburger -->
+                    <button id="menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full transition-colors pointer-events-auto relative z-50">
+                        <iconify-icon icon="solar:hamburger-menu-linear" class="text-3xl transition-all duration-300"></iconify-icon>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Fullscreen Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-40 flex flex-col justify-center px-8 opacity-0 pointer-events-none transition-opacity duration-300">
+            <!-- Close Button (Inside Menu) -->
+            <div class="absolute top-4 right-4 w-full flex justify-end px-4 py-4">
+                <button onclick="toggleMenu()" class="w-10 h-10 flex items-center justify-center rounded-full pointer-events-auto">
+                    <iconify-icon icon="solar:close-circle-linear" class="text-4xl"></iconify-icon>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-6 text-4xl font-medium tracking-tight">
+                <h1 class="text-sm text-slate-500">Menu</h1>
+                <a href="#about" class="mobile-menu-item text-slate-900 hover:text-blue-600 transition-colors" onclick="toggleMenu()">Who we are</a>
+                <a href="#services" class="mobile-menu-item text-slate-900 hover:text-blue-600 transition-colors" style="transition-delay: 50ms;" onclick="toggleMenu()">Expertise</a>
+                <a href="#works" class="mobile-menu-item text-slate-900 hover:text-blue-600 transition-colors" style="transition-delay: 75ms;" onclick="toggleMenu()">Works</a>
+                <a href="#products" class="mobile-menu-item text-slate-900 hover:text-blue-600 transition-colors" style="transition-delay: 100ms;" onclick="toggleMenu()">Products</a>
+            </div>
+            
+            <div class="mt-12 mobile-menu-item border-t border-slate-100 pt-8" style="transition-delay: 200ms;">
+                <p class="text-sm text-slate-500 mb-4">Get in touch</p>
+                <a href="mailto:hello@dynamix.com" class="text-xl text-blue-600 underline decoration-1 underline-offset-4">hello@dynamixwebsolution.com</a>
+                
+                <div class="flex gap-4 mt-8">
+                    <a href="#" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition-colors">
+                        <iconify-icon icon="solar:brand-twitter-linear" width="20"></iconify-icon>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition-colors">
+                        <iconify-icon icon="solar:brand-instagram-linear" width="20"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <!-- Section 1: Hero -->
+            <section class="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-6">
+                <div class="max-w-7xl w-full mx-auto text-center md:text-left">
+                    <div class="max-w-5xl mx-auto md:mx-0">
+                        <div class="reveal-text overflow-hidden mb-8">
+                            <h1 class="text-5xl md:text-7xl lg:text-8xl tracking-tighter font-medium leading-[1.05] text-slate-900">
+                                Build the <span class="text-blue-600 relative inline-block">Future
+                                    <svg class="absolute w-full h-3 -bottom-1 left-0 text-blue-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none"></path>
+                                    </svg>
+                                </span> <br>
+                                With Superpowers.
+                            </h1>
+                        </div>
+                        
+                        <p class="reveal-text text-lg md:text-2xl text-slate-500 font-light max-w-2xl mb-12 leading-relaxed mx-auto md:mx-0">
+                            We blend high-end aesthetic branding with robust engineering to create digital products that define categories and drive growth.
+                        </p>
+
+                        <!-- Improved CTA -->
+                        <div class="reveal-opacity flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start">
+                            <!-- Primary Button -->
+                            <a href="#contact" class="w-full sm:w-[240px] group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-xl bg-slate-900 px-8 py-3 font-medium text-white shadow-xl shadow-slate-900/10 transition-all duration-300 hover:bg-blue-600 hover:shadow-blue-600/20 hover:-translate-y-0.5">
+                                <span class="absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-blue-600 transition-all duration-300 group-hover:translate-x-0">
+                                    <iconify-icon icon="solar:arrow-right-linear" class="text-2xl"></iconify-icon>
+                                </span>
+                                <span class="absolute flex h-full w-full items-center justify-center transition-all duration-300 group-hover:translate-x-full">
+                                    Build With Us
+                                </span>
+                                <span class="invisible relative">Start a Project</span>
+                            </a>
+
+                            <!-- Secondary Button -->
+                            <a href="#work" class="w-full sm:w-[240px] group relative inline-flex h-14 items-center justify-center rounded-xl bg-white px-8 py-3 font-medium text-slate-600 shadow-sm border border-slate-200 hover:border-slate-300 hover:text-slate-900 transition-all duration-300 hover:-translate-y-0.5">
+                                <span class="mr-2">View Case Studies</span>
+                                <iconify-icon icon="solar:arrow-right-up-linear" class="text-lg transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Abstract Background Element -->
+                <div class="absolute right-0 top-0 -z-10 w-full h-screen overflow-hidden opacity-40 pointer-events-none">
+                    <div class="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-100 rounded-full blur-[100px]"></div>
+                    <div class="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] bg-indigo-50 rounded-full blur-[80px]"></div>
+                </div>
+            </section>
+
+            <!-- Section 2: Intro & Metrics -->
+            <section id="about" class="py-24 px-6 border-t border-slate-100">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                        <div class="gsap-fade-up">
+                            <h2 class="text-3xl md:text-4xl tracking-tight font-medium leading-tight mb-6">
+                                A Digital Agency Built for What's Next.
+                            </h2>
+                            <p class="text-slate-500 font-light text-lg">
+                                Dynamix web solution isn't just a dev shop. We are a collective of thinkers and builders dedicated to pushing the boundaries of what's possible on the web.
+                            </p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 gsap-fade-up">
+                            <div class="metric-card p-6 bg-slate-50 rounded-2xl">
+                                <div class="text-4xl md:text-5xl font-medium tracking-tight mb-2 text-blue-600 flex items-baseline">
+                                    <span class="counter" data-target="98">0</span>%
+                                </div>
+                                <p class="text-xs text-slate-500 uppercase tracking-wide font-medium">Delivery Rate</p>
+                            </div>
+                            <div class="metric-card p-6 bg-slate-50 rounded-2xl">
+                                <div class="text-4xl md:text-5xl font-medium tracking-tight mb-2 text-blue-600 flex items-baseline">
+                                    <span class="counter" data-target="30">0</span>+
+                                </div>
+                                <p class="text-xs text-slate-500 uppercase tracking-wide font-medium">Projects</p>
+                            </div>
+                            <div class="metric-card p-6 bg-slate-50 rounded-2xl">
+                                <div class="text-4xl md:text-5xl font-medium tracking-tight mb-2 text-blue-600 flex items-baseline">
+                                    <span class="counter" data-target="3">0</span>y
+                                </div>
+                                <p class="text-xs text-slate-500 uppercase tracking-wide font-medium">Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Featured Works (Portrait Square) -->
+            <section id="work" class="py-24 px-6 bg-slate-50 rounded-t-[3rem] -mt-12 relative z-30">
+                <div class="max-w-7xl mx-auto">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gsap-fade-up">
+                        <h2 class="text-4xl md:text-5xl tracking-tighter font-medium text-slate-900">Featured Works</h2>
+                        <a href="#" class="hidden md:flex items-center gap-1 text-slate-500 hover:text-blue-600 transition-colors">
+                            View Archive <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-16">
+                        <!-- Project 1 -->
+                        <div class="group cursor-pointer project-card">
+                            <div class="w-full aspect-portrait bg-slate-200 rounded-2xl overflow-hidden mb-6 relative">
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1964&amp;q=80" alt="Project 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                                <div class="absolute top-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                                    <iconify-icon icon="solar:arrow-right-up-linear" class="text-xl"></iconify-icon>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-2xl font-medium tracking-tight mb-1 group-hover:text-blue-600 transition-colors">DWS</h3>
+                                    <p class="text-slate-500 font-light">Website, Branding Experience</p>
+                                </div>
+                                <span class="px-3 py-1 border border-slate-200 bg-white rounded-full text-xs text-slate-600">E-commerce</span>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="group cursor-pointer project-card md:mt-24">
+                            <div class="w-full aspect-portrait bg-slate-200 rounded-2xl overflow-hidden mb-6 relative">
+                                <img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1769&amp;q=80" alt="Project 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                                <div class="absolute top-6 right-6 w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                                    <iconify-icon icon="solar:arrow-right-up-linear" class="text-xl"></iconify-icon>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-2xl font-medium tracking-tight mb-1 group-hover:text-blue-600 transition-colors">Henxco Nig Ltd</h3>
+                                    <p class="text-slate-500 font-light">Branding Experience</p>
+                                </div>
+                                <span class="px-3 py-1 border border-slate-200 bg-white rounded-full text-xs text-slate-600">Company</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-16 text-center md:hidden">
+                        <a href="#" class="inline-flex h-12 items-center justify-center px-6 font-medium text-slate-900 border border-slate-200 rounded-full">
+                            View Archive
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Services -->
+            <section id="services" class="py-24 px-6">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-16 gsap-fade-up">
+                        <h2 class="text-sm font-medium text-blue-600 tracking-wider uppercase mb-3">Our Expertise</h2>
+                        <h3 class="text-4xl md:text-5xl tracking-tighter font-medium">Building business solutions through <br> design, code, &amp;  intelligence.</h3>
+                    </div>
+
+                    <div class="space-y-0">
+                        <!-- Service Item -->
+                        <div class="service-row group border-t border-slate-100 py-12 transition-all hover:bg-slate-50 cursor-pointer">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 px-4">
+                                <div class="flex items-center gap-8">
+                                    <span class="text-xs text-slate-300 font-mono">01</span>
+                                    <h4 class="text-2xl md:text-3xl font-medium tracking-tight group-hover:text-blue-600 transition-colors">Branding Experience</h4>
+                                </div>
+                                <p class="text-slate-500 font-light max-w-md md:text-right group-hover:text-slate-800">Visual identity, logos, and brand guidelines that tell your story.</p>
+                                <iconify-icon icon="solar:arrow-right-linear" class="text-2xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-blue-600 hidden md:block"></iconify-icon>
+                            </div>
+                        </div>
+
+                        <!-- Service Item -->
+                        <div class="service-row group border-t border-slate-100 py-12 transition-all hover:bg-slate-50 cursor-pointer">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 px-4">
+                                <div class="flex items-center gap-8">
+                                    <span class="text-xs text-slate-300 font-mono">02</span>
+                                    <h4 class="text-2xl md:text-3xl font-medium tracking-tight group-hover:text-blue-600 transition-colors">Product Design (UI/UX)</h4>
+                                </div>
+                                <p class="text-slate-500 font-light max-w-md md:text-right group-hover:text-slate-800">User-centric interfaces tailored for engagement and conversion.</p>
+                                <iconify-icon icon="solar:arrow-right-linear" class="text-2xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-blue-600 hidden md:block"></iconify-icon>
+                            </div>
+                        </div>
+
+                        <!-- Service Item -->
+                        <div class="service-row group border-t border-slate-100 py-12 transition-all hover:bg-slate-50 cursor-pointer">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 px-4">
+                                <div class="flex items-center gap-8">
+                                    <span class="text-xs text-slate-300 font-mono">03</span>
+                                    <h4 class="text-2xl md:text-3xl font-medium tracking-tight group-hover:text-blue-600 transition-colors">Custom Development</h4>
+                                </div>
+                                <p class="text-slate-500 font-light max-w-md md:text-right group-hover:text-slate-800">Scalable web and mobile applications built with modern stacks.</p>
+                                <iconify-icon icon="solar:arrow-right-linear" class="text-2xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-blue-600 hidden md:block"></iconify-icon>
+                            </div>
+                        </div>
+
+                        <!-- Service Item -->
+                        <div class="service-row group border-t border-slate-100 py-12 transition-all hover:bg-slate-50 cursor-pointer">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 px-4">
+                                <div class="flex items-center gap-8">
+                                    <span class="text-xs text-slate-300 font-mono">04</span>
+                                    <h4 class="text-2xl md:text-3xl font-medium tracking-tight group-hover:text-blue-600 transition-colors">Research &amp; Discovery</h4>
+                                </div>
+                                <p class="text-slate-500 font-light max-w-md md:text-right group-hover:text-slate-800">Market analysis and user research to validate product market fit.</p>
+                                <iconify-icon icon="solar:arrow-right-linear" class="text-2xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-blue-600 hidden md:block"></iconify-icon>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-slate-100"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Industries We Serve (Bento Grid) -->
+            <section id="industries" class="py-24 px-6 border-t border-slate-100 rounded-t-[3rem] -mt-12 relative z-30">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-12 gsap-fade-up max-w-3xl">
+                        <h2 class="text-4xl md:text-5xl tracking-tighter font-medium mb-6">Industries we serve</h2>
+                        <p class="text-xl text-slate-500 font-light">From traditional sectors to emerging markets, our solutions are engineered for adaptability and scale across diverse landscapes.</p>
+                    </div>
+
+                    <!-- Fitted Stacked Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 gsap-fade-up auto-rows-fr">
+                        <!-- Real Estate (Large) -->
+                        <div class="col-span-1 md:col-span-2 p-8 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:border-blue-200 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/5 flex flex-col justify-between min-h-[220px]">
+                            <div class="w-12 h-12 rounded-lg bg-white shadow-sm text-slate-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                <iconify-icon icon="solar:city-linear" class="text-2xl"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-medium tracking-tight mb-1">Real Estate</h3>
+                                <p class="text-sm text-slate-500 font-light">Websites, CRM Systems &amp; Virtual Tours</p>
+                            </div>
+                        </div>
+
+                        <!-- Healthcare (Standard) -->
+                        <div class="col-span-1 p-6 rounded-2xl border border-slate-100 bg-white hover:border-blue-200 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/5 flex flex-col justify-between">
+                            <div class="w-10 h-10 rounded-lg bg-slate-50 text-slate-600 flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                <iconify-icon icon="solar:heart-pulse-linear" class="text-xl"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium tracking-tight">Healthcare</h3>
+                                <p class="text-xs text-slate-500 font-light mt-1">Websites, Mobile apps</p>
+                            </div>
+                        </div>
+
+                        <!-- Finance (Standard) -->
+                        <div class="col-span-1 p-6 rounded-2xl border border-slate-100 bg-white hover:border-blue-200 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/5 flex flex-col justify-between">
+                            <div class="w-10 h-10 rounded-lg bg-slate-50 text-slate-600 flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                <iconify-icon icon="solar:bed-linear" class="text-xl"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium tracking-tight">Hotels and Resturants</h3>
+                                <p class="text-xs text-slate-500 font-light mt-1">Reservations, Menus &amp; Booking platforms</p>
+                            </div>
+                        </div>
+
+                        <!-- E-commerce (Large) -->
+                        <div class="col-span-1 md:col-span-2 md:row-span-1 p-8 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:border-blue-200 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/5 flex flex-col justify-between min-h-[220px] md:order-last">
+                            <div class="w-12 h-12 rounded-lg bg-white shadow-sm text-slate-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                <iconify-icon icon="solar:bag-3-linear" class="text-2xl"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-medium tracking-tight mb-1">E-commerce</h3>
+                                <p class="text-sm text-slate-500 font-light">Custom Storefronts &amp; Headless Solutions</p>
+                            </div>
+                        </div>
+
+                        <!-- Creatives -->
+                        <div class="col-span-1 p-6 rounded-2xl border border-slate-100 bg-white hover:border-blue-200 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/5 flex flex-col justify-between">
+                            <div class="w-10 h-10 rounded-lg bg-slate-50 text-slate-600 flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                              <iconify-icon icon="mdi:video" class="text-xl"></iconify-icon>
+                            </div>
+
+                            <div>
+                                <h3 class="text-lg font-medium tracking-tight">Creatives Website</h3>
+                                <p class="text-xs text-slate-500 font-light mt-1">Photographers, videographers, designers, writers.</p>
+                            </div>
+                        </div>
+
+                        <!-- Media -->
+                        <div class="col-span-1 p-6 rounded-2xl border border-slate-100 bg-white hover:border-blue-200 transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/5 flex flex-col justify-between">
+                            <div class="w-10 h-10 rounded-lg bg-slate-50 text-slate-600 flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                <iconify-icon icon="solar:clapperboard-play-linear" class="text-xl"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium tracking-tight">Travel & Media</h3>
+                                <p class="text-xs text-slate-500 font-light mt-1">Websites &amp; Blogs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Why Us (Improved Light Theme Accordion) -->
+            <section class="py-24 px-6 bg-slate-50 rounded-t-[3rem] -mt-12 relative z-30">
+                <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    <div class="lg:col-span-5 gsap-fade-up">
+                        <h2 class="text-4xl md:text-5xl tracking-tighter font-medium text-slate-900 mb-6">Why partner with Us?</h2>
+                        <p class="text-xl text-slate-500 font-light mb-8">We don't just act as an Agency. We are your strategic growth partners, invested in your long-term success.</p>
+                        <a href="#contact" class="inline-flex items-center gap-2 text-blue-600 font-medium hover:gap-3 transition-all">
+                            Start your project <iconify-icon icon="solar:arrow-right-linear"></iconify-icon>
+                        </a>
+                    </div>
+
+                    <div class="lg:col-span-7 space-y-4 gsap-fade-up">
+                        <!-- Accordion Item 1 -->
+                        <div class="accordion-item bg-white border border-slate-100 rounded-2xl px-8 py-6 cursor-pointer hover:shadow-md hover:border-slate-200 transition-all duration-300 shadow-sm" onclick="toggleAccordion(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-medium tracking-tight text-slate-900">Results-driven approach</h3>
+                                <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400">
+                                    <iconify-icon icon="solar:add-linear" class="text-xl transition-transform duration-300 icon-toggle"></iconify-icon>
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <p class="pt-4 text-slate-500 font-light leading-relaxed">We focus on KPIs that matter. Our designs and code are optimized for conversion, performance, and user retention, ensuring you get a tangible return on investment.</p>
+                            </div>
+                        </div>
+
+                        <!-- Accordion Item 2 -->
+                        <div class="accordion-item bg-white border border-slate-100 rounded-2xl px-8 py-6 cursor-pointer hover:shadow-md hover:border-slate-200 transition-all duration-300 shadow-sm" onclick="toggleAccordion(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-medium tracking-tight text-slate-900">Cross-functional expertise</h3>
+                                <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400">
+                                    <iconify-icon icon="solar:add-linear" class="text-xl transition-transform duration-300 icon-toggle"></iconify-icon>
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <p class="pt-4 text-slate-500 font-light leading-relaxed">We eliminate the friction between design and dev. Our teams work in sync, ensuring that the beautiful designs we create are technically feasible and perfectly implemented.</p>
+                            </div>
+                        </div>
+
+                        <!-- Accordion Item 3 -->
+                        <div class="accordion-item bg-white border border-slate-100 rounded-2xl px-8 py-6 cursor-pointer hover:shadow-md hover:border-slate-200 transition-all duration-300 shadow-sm" onclick="toggleAccordion(this)">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-medium tracking-tight text-slate-900">Scalable solutions</h3>
+                                <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400">
+                                    <iconify-icon icon="solar:add-linear" class="text-xl transition-transform duration-300 icon-toggle"></iconify-icon>
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <p class="pt-4 text-slate-500 font-light leading-relaxed">We build with the future in mind. Whether it's a design system or a backend architecture, we structure our work so it can grow effortlessly as your business expands.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: Footer (Dark Mode) -->
+            <footer id="contact" class="bg-black text-white pt-24 pb-8 px-6 border-t border-slate-800 rounded-t-[3rem] -mt-12 relative z-30">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
+                        <div class="lg:col-span-2">
+                            <a href="index.html" class="text-2xl tracking-tighter font-medium flex items-center gap-2 mb-6">
+                                <svg width="80" height="" viewBox="0 0 565 239" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0H211.676C230.532 0 245.817 15.2863 245.817 34.1429V54.6286H223.057V43.8501C223.057 32.2034 213.615 22.7619 201.969 22.7619H22.761V216.238H201.969C213.616 216.238 223.057 206.797 223.057 195.15V184.371H245.817V204.857C245.817 223.714 230.532 239 211.676 239H0V0Z" fill="white"/>
+                                    <path d="M50.0739 54.6286H172.983C185.553 54.6286 195.743 64.8194 195.743 77.3905V161.61C195.743 174.181 185.553 184.371 172.983 184.371H50.0739V54.6286Z" fill="white"/>
+                                    <path d="M235.835 156.585V147.728H262.897C264.734 147.728 265.653 146.744 265.653 144.776V129.817H264.078C263.488 131.129 262.569 132.409 261.323 133.655C260.142 134.836 258.535 135.82 256.501 136.608C254.467 137.395 251.908 137.789 248.825 137.789C245.151 137.789 241.871 136.969 238.984 135.328C236.098 133.688 233.834 131.359 232.194 128.341C230.554 125.323 229.734 121.748 229.734 117.614V88.3859H239.87V116.827C239.87 121.026 240.92 124.142 243.019 126.176C245.118 128.144 248.038 129.128 251.777 129.128C255.91 129.128 259.223 127.751 261.716 124.995C264.275 122.24 265.554 118.237 265.554 112.989V88.3859H275.69V146.842C275.69 149.795 274.805 152.157 273.033 153.928C271.328 155.7 268.966 156.585 265.948 156.585H235.835Z" fill="white"/>
+                                    <path d="M290.674 136.903V88.3859H300.613V95.6684H302.187C303.106 93.7001 304.746 91.8631 307.108 90.1573C309.469 88.4515 312.979 87.5986 317.637 87.5986C321.311 87.5986 324.558 88.4187 327.379 90.0589C330.266 91.6991 332.529 94.0282 334.17 97.0461C335.81 99.9985 336.63 103.574 336.63 107.773V136.903H326.494V108.56C326.494 104.361 325.444 101.278 323.345 99.3096C321.245 97.2758 318.359 96.2588 314.685 96.2588C310.486 96.2588 307.108 97.6366 304.549 100.392C302.056 103.148 300.81 107.15 300.81 112.398V136.903H290.674Z" fill="white"/>
+                                    <path d="M366.273 138.281C362.796 138.281 359.68 137.69 356.925 136.509C354.235 135.328 352.07 133.59 350.43 131.293C348.855 128.997 348.068 126.209 348.068 122.928C348.068 119.582 348.855 116.827 350.43 114.662C352.07 112.431 354.268 110.758 357.023 109.643C359.844 108.528 363.026 107.97 366.569 107.97H381.33V104.821C381.33 102 380.477 99.7361 378.771 98.0303C377.065 96.3244 374.441 95.4715 370.899 95.4715C367.422 95.4715 364.764 96.2916 362.928 97.9318C361.091 99.572 359.877 101.704 359.286 104.329L349.839 101.278C350.627 98.6535 351.873 96.2916 353.579 94.1922C355.35 92.0271 357.679 90.2885 360.566 88.9764C363.452 87.6642 366.929 87.0081 370.997 87.0081C377.295 87.0081 382.248 88.6155 385.856 91.8303C389.465 95.0451 391.269 99.6048 391.269 105.51V125.487C391.269 127.455 392.187 128.439 394.024 128.439H398.157V136.903H390.58C388.284 136.903 386.414 136.312 384.971 135.132C383.527 133.951 382.806 132.343 382.806 130.309V130.014H381.33C380.805 130.998 380.018 132.146 378.968 133.458C377.918 134.771 376.377 135.919 374.343 136.903C372.309 137.821 369.619 138.281 366.273 138.281ZM367.75 129.916C371.817 129.916 375.097 128.768 377.59 126.471C380.083 124.109 381.33 120.895 381.33 116.827V115.843H367.159C364.469 115.843 362.304 116.433 360.664 117.614C359.024 118.73 358.204 120.403 358.204 122.633C358.204 124.864 359.057 126.635 360.763 127.947C362.468 129.26 364.797 129.916 367.75 129.916Z" fill="white"/>
+                                    <path d="M408.013 136.903V88.3859H417.952V94.0938H419.526C420.445 92.388 421.921 90.879 423.955 89.5668C425.988 88.2547 428.744 87.5986 432.221 87.5986C435.829 87.5986 438.716 88.3531 440.881 89.8621C443.111 91.3055 444.784 93.1753 445.9 95.4715H447.474C448.589 93.2409 450.197 91.3711 452.296 89.8621C454.461 88.3531 457.512 87.5986 461.448 87.5986C464.597 87.5986 467.385 88.2547 469.812 89.5668C472.24 90.8134 474.175 92.716 475.619 95.2747C477.062 97.7678 477.783 100.884 477.783 104.624V136.903H467.648V105.411C467.648 102.459 466.827 100.195 465.187 98.6207C463.613 96.9805 461.349 96.1604 458.397 96.1604C455.248 96.1604 452.722 97.1774 450.82 99.2112C448.917 101.245 447.966 104.165 447.966 107.97V136.903H437.83V105.411C437.83 102.459 437.01 100.195 435.37 98.6207C433.795 96.9805 431.532 96.1604 428.58 96.1604C425.431 96.1604 422.905 97.1774 421.003 99.2112C419.1 101.245 418.149 104.165 418.149 107.97V136.903H408.013Z" fill="white"/>
+                                    <path d="M492.389 136.903V88.3859H502.525V136.903H492.389ZM497.506 81.7923C495.538 81.7923 493.865 81.169 492.488 79.9225C491.176 78.6103 490.52 76.9373 490.52 74.9035C490.52 72.8696 491.176 71.2295 492.488 69.9829C493.865 68.6707 495.538 68.0147 497.506 68.0147C499.54 68.0147 501.213 68.6707 502.525 69.9829C503.837 71.2295 504.493 72.8696 504.493 74.9035C504.493 76.9373 503.837 78.6103 502.525 79.9225C501.213 81.169 499.54 81.7923 497.506 81.7923Z" fill="white"/>
+                                    <path d="M513.435 136.903L531.935 112.398L513.828 88.3859H525.736L538.43 105.805H540.005L552.699 88.3859H564.705L546.499 112.398L565 136.903H552.896L540.005 119.09H538.43L525.539 136.903H513.435Z" fill="white"/>
+                                    <path d="M292.522 168.386L290.434 156.135H292.994L294.535 166.672H294.933L297.07 156.135H301.221L303.334 166.672H303.731L305.272 156.135H307.832L305.745 168.386H301.445L299.332 157.875H298.934L296.822 168.386H292.522Z" fill="white"/>
+                                    <path d="M325.799 168.734C324.556 168.734 323.471 168.477 322.543 167.964C321.615 167.434 320.886 166.697 320.356 165.752C319.842 164.791 319.585 163.681 319.585 162.422V162.124C319.585 160.848 319.842 159.738 320.356 158.794C320.87 157.833 321.582 157.096 322.493 156.582C323.421 156.052 324.49 155.787 325.7 155.787C326.876 155.787 327.903 156.052 328.782 156.582C329.676 157.096 330.372 157.817 330.869 158.744C331.367 159.672 331.615 160.757 331.615 162V162.969H322.195C322.228 164.046 322.585 164.907 323.264 165.553C323.96 166.183 324.822 166.498 325.849 166.498C326.81 166.498 327.531 166.282 328.011 165.852C328.508 165.421 328.889 164.924 329.154 164.361L331.267 165.454C331.035 165.918 330.695 166.407 330.248 166.92C329.817 167.434 329.246 167.865 328.533 168.212C327.821 168.56 326.909 168.734 325.799 168.734ZM322.22 161.006H329.005C328.939 160.078 328.608 159.357 328.011 158.844C327.415 158.314 326.636 158.049 325.675 158.049C324.714 158.049 323.927 158.314 323.314 158.844C322.717 159.357 322.353 160.078 322.22 161.006Z" fill="white"/>
+                                    <path d="M351.098 168.734C349.905 168.734 348.985 168.519 348.339 168.088C347.709 167.657 347.237 167.177 346.922 166.647H346.525V168.386H344.014V150.991H346.574V157.8H346.972C347.171 157.469 347.436 157.154 347.767 156.856C348.099 156.541 348.538 156.284 349.085 156.085C349.631 155.887 350.302 155.787 351.098 155.787C352.125 155.787 353.07 156.036 353.931 156.533C354.793 157.03 355.48 157.75 355.994 158.695C356.508 159.639 356.765 160.766 356.765 162.074V162.447C356.765 163.772 356.5 164.907 355.969 165.852C355.456 166.779 354.768 167.492 353.906 167.989C353.061 168.486 352.125 168.734 351.098 168.734ZM350.352 166.498C351.462 166.498 352.374 166.142 353.086 165.429C353.815 164.717 354.18 163.698 354.18 162.373V162.149C354.18 160.84 353.823 159.829 353.111 159.117C352.398 158.405 351.479 158.049 350.352 158.049C349.259 158.049 348.347 158.405 347.618 159.117C346.906 159.829 346.549 160.84 346.549 162.149V162.373C346.549 163.698 346.906 164.717 347.618 165.429C348.347 166.142 349.259 166.498 350.352 166.498Z" fill="white"/>
+                                    <path d="M382.101 168.734C380.544 168.734 379.251 168.386 378.224 167.691C377.197 166.995 376.567 165.943 376.335 164.535L378.721 163.963C378.853 164.642 379.077 165.181 379.392 165.578C379.707 165.976 380.096 166.257 380.56 166.423C381.041 166.589 381.554 166.672 382.101 166.672C382.913 166.672 383.534 166.514 383.965 166.2C384.413 165.885 384.636 165.479 384.636 164.982C384.636 164.485 384.429 164.12 384.015 163.888C383.601 163.656 382.988 163.466 382.176 163.317L381.331 163.168C380.502 163.019 379.748 162.803 379.069 162.522C378.39 162.24 377.851 161.851 377.453 161.354C377.056 160.857 376.857 160.219 376.857 159.44C376.857 158.28 377.288 157.386 378.149 156.756C379.011 156.11 380.154 155.787 381.579 155.787C382.954 155.787 384.081 156.102 384.959 156.731C385.854 157.344 386.434 158.181 386.699 159.241L384.313 159.912C384.164 159.167 383.849 158.645 383.369 158.347C382.888 158.032 382.292 157.875 381.579 157.875C380.883 157.875 380.336 158.007 379.939 158.272C379.541 158.521 379.342 158.877 379.342 159.341C379.342 159.838 379.533 160.202 379.914 160.434C380.312 160.666 380.842 160.84 381.505 160.956L382.375 161.105C383.253 161.254 384.056 161.461 384.785 161.726C385.514 161.991 386.086 162.373 386.5 162.87C386.931 163.367 387.147 164.029 387.147 164.858C387.147 166.084 386.691 167.036 385.78 167.715C384.868 168.395 383.642 168.734 382.101 168.734Z" fill="white"/>
+                                    <path d="M405.198 168.734C403.972 168.734 402.878 168.486 401.917 167.989C400.973 167.475 400.227 166.746 399.68 165.802C399.133 164.858 398.86 163.739 398.86 162.447V162.074C398.86 160.782 399.133 159.672 399.68 158.744C400.227 157.8 400.973 157.071 401.917 156.557C402.878 156.044 403.972 155.787 405.198 155.787C406.424 155.787 407.518 156.044 408.479 156.557C409.44 157.071 410.194 157.8 410.74 158.744C411.287 159.672 411.561 160.782 411.561 162.074V162.447C411.561 163.739 411.287 164.858 410.74 165.802C410.194 166.746 409.44 167.475 408.479 167.989C407.518 168.486 406.424 168.734 405.198 168.734ZM405.198 166.448C406.325 166.448 407.236 166.092 407.932 165.379C408.644 164.65 409.001 163.648 409.001 162.373V162.149C409.001 160.873 408.653 159.879 407.957 159.167C407.261 158.438 406.341 158.073 405.198 158.073C404.088 158.073 403.176 158.438 402.464 159.167C401.768 159.879 401.42 160.873 401.42 162.149V162.373C401.42 163.648 401.768 164.65 402.464 165.379C403.176 166.092 404.088 166.448 405.198 166.448Z" fill="white"/>
+                                    <path d="M424.065 168.386V150.991H426.625V168.386H424.065Z" fill="white"/>
+                                    <path d="M444.44 168.61C443.512 168.61 442.683 168.403 441.954 167.989C441.225 167.575 440.654 166.986 440.239 166.224C439.825 165.462 439.618 164.551 439.618 163.491V156.135H442.178V163.317C442.178 164.377 442.443 165.164 442.973 165.678C443.504 166.175 444.241 166.423 445.185 166.423C446.229 166.423 447.066 166.075 447.696 165.379C448.342 164.667 448.665 163.648 448.665 162.323V156.135H451.225V168.386H448.715V166.547H448.317C448.085 167.044 447.671 167.517 447.074 167.964C446.478 168.395 445.6 168.61 444.44 168.61Z" fill="white"/>
+                                    <path d="M468.925 168.386C468.179 168.386 467.583 168.163 467.135 167.715C466.705 167.268 466.489 166.672 466.489 165.926V158.297H463.109V156.135H466.489V152.084H469.049V156.135H472.703V158.297H469.049V165.479C469.049 165.976 469.281 166.224 469.745 166.224H472.305V168.386H468.925Z" fill="white"/>
+                                    <path d="M485.028 168.386V156.135H487.588V168.386H485.028ZM486.32 154.47C485.823 154.47 485.401 154.313 485.053 153.998C484.721 153.667 484.556 153.244 484.556 152.73C484.556 152.217 484.721 151.803 485.053 151.488C485.401 151.157 485.823 150.991 486.32 150.991C486.834 150.991 487.257 151.157 487.588 151.488C487.919 151.803 488.085 152.217 488.085 152.73C488.085 153.244 487.919 153.667 487.588 153.998C487.257 154.313 486.834 154.47 486.32 154.47Z" fill="white"/>
+                                    <path d="M506.446 168.734C505.22 168.734 504.126 168.486 503.165 167.989C502.221 167.475 501.475 166.746 500.928 165.802C500.382 164.858 500.108 163.739 500.108 162.447V162.074C500.108 160.782 500.382 159.672 500.928 158.744C501.475 157.8 502.221 157.071 503.165 156.557C504.126 156.044 505.22 155.787 506.446 155.787C507.672 155.787 508.766 156.044 509.727 156.557C510.688 157.071 511.442 157.8 511.989 158.744C512.536 159.672 512.809 160.782 512.809 162.074V162.447C512.809 163.739 512.536 164.858 511.989 165.802C511.442 166.746 510.688 167.475 509.727 167.989C508.766 168.486 507.672 168.734 506.446 168.734ZM506.446 166.448C507.573 166.448 508.484 166.092 509.18 165.379C509.893 164.65 510.249 163.648 510.249 162.373V162.149C510.249 160.873 509.901 159.879 509.205 159.167C508.509 158.438 507.59 158.073 506.446 158.073C505.336 158.073 504.425 158.438 503.712 159.167C503.016 159.879 502.668 160.873 502.668 162.149V162.373C502.668 163.648 503.016 164.65 503.712 165.379C504.425 166.092 505.336 166.448 506.446 166.448Z" fill="white"/>
+                                    <path d="M525.314 168.386V156.135H527.824V157.974H528.222C528.454 157.477 528.868 157.013 529.464 156.582C530.061 156.152 530.947 155.936 532.124 155.936C533.052 155.936 533.872 156.143 534.584 156.557C535.314 156.972 535.885 157.56 536.299 158.322C536.714 159.067 536.921 159.97 536.921 161.031V168.386H534.361V161.229C534.361 160.169 534.096 159.39 533.565 158.893C533.035 158.38 532.306 158.123 531.378 158.123C530.318 158.123 529.464 158.471 528.818 159.167C528.189 159.863 527.874 160.873 527.874 162.199V168.386H525.314Z" fill="white"/>
+                                    <path d="M554.943 168.734C553.386 168.734 552.093 168.386 551.066 167.691C550.039 166.995 549.409 165.943 549.177 164.535L551.563 163.963C551.696 164.642 551.919 165.181 552.234 165.578C552.549 165.976 552.938 166.257 553.402 166.423C553.883 166.589 554.396 166.672 554.943 166.672C555.755 166.672 556.377 166.514 556.807 166.2C557.255 165.885 557.478 165.479 557.478 164.982C557.478 164.485 557.271 164.12 556.857 163.888C556.443 163.656 555.83 163.466 555.018 163.317L554.173 163.168C553.344 163.019 552.59 162.803 551.911 162.522C551.232 162.24 550.693 161.851 550.296 161.354C549.898 160.857 549.699 160.219 549.699 159.44C549.699 158.28 550.13 157.386 550.991 156.756C551.853 156.11 552.996 155.787 554.421 155.787C555.797 155.787 556.923 156.102 557.802 156.731C558.696 157.344 559.276 158.181 559.541 159.241L557.155 159.912C557.006 159.167 556.691 158.645 556.211 158.347C555.73 158.032 555.134 157.875 554.421 157.875C553.725 157.875 553.179 158.007 552.781 158.272C552.383 158.521 552.184 158.877 552.184 159.341C552.184 159.838 552.375 160.202 552.756 160.434C553.154 160.666 553.684 160.84 554.347 160.956L555.217 161.105C556.095 161.254 556.899 161.461 557.628 161.726C558.357 161.991 558.928 162.373 559.343 162.87C559.773 163.367 559.989 164.029 559.989 164.858C559.989 166.084 559.533 167.036 558.622 167.715C557.71 168.395 556.484 168.734 554.943 168.734Z" fill="white"/>
+                                </svg>
+                            </a>
+                            <p class="text-slate-400 font-light max-w-sm mb-8">
+                                Building business solutions through design, code, & intelligence.
+                            </p>
+                            <div class="flex gap-4">
+                                <a href="#" class="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
+                                    <iconify-icon icon="mdi:linkedin" width="20"></iconify-icon>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
+                                    <iconify-icon icon="mdi:twitter" width="20"></iconify-icon>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
+                                    <iconify-icon icon="mdi:instagram" width="20"></iconify-icon>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all">
+                                    <iconify-icon icon="mdi:facebook" width="20"></iconify-icon>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <h4 class="font-medium mb-6 text-white">Company</h4>
+                            <ul class="space-y-4 text-slate-400 font-light text-sm">
+                                <li><a href="#work" class="hover:text-blue-500 transition-colors">Works</a></li>
+                                <li><a href="#services" class="hover:text-blue-500 transition-colors">Expertise</a></li>
+                                <li><a href="#about" class="hover:text-blue-500 transition-colors">Agency</a></li>
+                                <li><a href="#" class="hover:text-blue-500 transition-colors">Careers</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-medium mb-6 text-white">Contact</h4>
+                            <ul class="space-y-4 text-slate-400 font-light text-sm">
+                                <li class="flex items-start gap-3">
+                                    <iconify-icon icon="solar:letter-linear" class="mt-0.5 text-lg"></iconify-icon>
+                                    hello@dynamixwebsolution.com
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <iconify-icon icon="solar:phone-calling-linear" class="mt-0.5 text-lg"></iconify-icon>
+                                    +234-708-846-5202
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <iconify-icon icon="solar:map-point-linear" class="mt-0.5 text-lg"></iconify-icon>
+                                    Abuja, Nigeria.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-light">
+                        <p>© 2026 Dynamix Web Solution Ltd. All rights reserved.</p>
+                        <div class="flex gap-6">
+                            <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                            <a href="#" class="hover:text-slate-300">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+
+        <script src="main.js"></script>
+
+    </body>
+</html>
